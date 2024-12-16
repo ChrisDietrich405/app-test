@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Link } from "expo-router";
+
 export default function App() {
 	return (
 		<View style={styles.container}>
-			<Image src={require("../../assets/logo.png")} style={styles.image} />
+			<Image source={require("../../assets/logo.png")} style={styles.image} />
 
-			<Link href="/auth">
+			<Link href="/login">
 				<Text style={styles.link}>Auth</Text>
 			</Link>
 		</View>

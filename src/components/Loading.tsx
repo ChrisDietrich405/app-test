@@ -3,8 +3,6 @@ import { Link } from "expo-router";
 export default function Loading() {
 	return (
 		<View style={styles.container}>
-			{/* <Image src={require("../../assets/logo.png")} style={styles.image} /> */}
-
 			<Text style={styles.link}>Loading ....</Text>
 		</View>
 	);

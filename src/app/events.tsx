@@ -3,14 +3,7 @@ import { Link } from "expo-router";
 export default function Events() {
 	return (
 		<View style={styles.container}>
-			<Image src={require("../../assets/logo.png")} style={styles.image} />
-
-			<Text style={styles.link}>
-				An app to let you know about upcoming local catering/popup vegan events
-			</Text>
-			<Button title="Create Account" />
-			<Button title="Log in" />
-			<Button title="Sign in with Google" />
+			<Text>hello</Text>
 		</View>
 	);
 }

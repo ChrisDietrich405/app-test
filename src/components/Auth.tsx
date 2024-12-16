@@ -55,7 +55,7 @@ export default function App() {
 				setUserInfo(userInfo);
 				await createUser(userInfo.data.user);
 			}
-			router.push("/");
+			// router.push("/");
 		} catch (error) {
 			console.log("Error signing in with Google", error);
 		}
