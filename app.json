@@ -1,0 +1,46 @@
+{
+	"expo": {
+		"name": "app-test",
+		"scheme": "app-test",
+		"slug": "app-test",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"newArchEnabled": true,
+		"splash": {
+			"image": "./assets/splash-icon.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"plugins": [
+			[
+				"@react-native-google-signin/google-signin",
+				{
+					"iosUrlScheme": "com.googleusercontent.apps.583672734862-ltq14cnque49bs77du0jr7j65mn4dmhs",
+					"androidUrlScheme": "870172615730-ehosafbm1g9toc4heedh1hrnafb3puqa.apps.googleusercontent.com"
+				}
+			],
+			"expo-router",
+			["react-native-bootsplash", { "assetsDir": "assets/bootsplash" }]
+		],
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			},
+			"package": "com.chrisdietrich.apptest"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "81604793-096a-432e-8375-046b097ce4d7"
+			}
+		}
+	}
+}
