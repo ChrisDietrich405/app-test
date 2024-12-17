@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { View, Text, StyleSheet, Image, Button } from "react-native";
 import { Link } from "expo-router";
 import useGoogleAuth from "../hooks/useGoogleAuth";
+import { AccessToken, LoginButton } from "react-native-fbsdk-next";
 // import Auth from "../components/Auth"
 
 export default function Login() {
@@ -28,6 +29,20 @@ export default function Login() {
 			<Button title="Create Account" />
 			<Button title="Log in" />
 			<Button title="Sign in With Google" onPress={handleSignInWithGoogle} />
+			<LoginButton
+				onLoginFinished={(error, result) => {
+					if (error) {
+						console.log("login has error: ");
+					} else if (result.isCancelled) {
+						console.log("login is cancelled.");
+					} else {
+						AccessToken.getCurrentAccessToken().then((data) => {
+							console.log(data?.accessToken.toString());
+						});
+					}
+				}}
+				onLogoutFinished={() => console.log("logout.")}
+			/>
 			{/* <Auth /> */}
 		</View>
 	);
