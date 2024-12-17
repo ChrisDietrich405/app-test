@@ -21,7 +21,7 @@ export default function Layout() {
 	return (
 		<Stack>
 			<Stack.Screen name="index" options={{ title: "Home" }} />
-			<Stack.Screen name="login" options={{ title: "login" }} />
+			<Stack.Screen name="events" options={{ title: "Events" }} />
 		</Stack>
 	);
 }
