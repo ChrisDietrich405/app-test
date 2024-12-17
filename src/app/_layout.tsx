@@ -4,8 +4,8 @@ import { Stack, SplashScreen } from "expo-router";
 import { Settings } from "react-native-fbsdk-next";
 
 SplashScreen.preventAutoHideAsync();
-console.log("helloooo", Settings.initializeSDK);
-Settings?.initializeSDK();
+// console.log("helloooo", Settings.initializeSDK);
+// Settings?.initializeSDK();
 
 export default function Layout() {
 	// const [loaded] = useFonts({
