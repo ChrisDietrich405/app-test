@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { View, Text, StyleSheet, Image, Button } from "react-native";
 import { Link } from "expo-router";
 import useGoogleAuth from "../hooks/useGoogleAuth";
-import { AccessToken, LoginButton } from "react-native-fbsdk-next";
+import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
+import { Settings, AccessToken, LoginButton } from "react-native-fbsdk-next";
+
 // import Auth from "../components/Auth"
 
 export default function Login() {
@@ -10,6 +12,17 @@ export default function Login() {
 		useGoogleAuth();
 
 	useEffect(() => {
+		const requestTracking = async () => {
+			const { status } = await requestTrackingPermissionsAsync();
+
+			Settings.initializeSDK();
+
+			if (status === "granted") {
+				await Settings.setAdvertiserTrackingEnabled(true);
+			}
+		};
+
+		requestTracking();
 		configureGoogleSignIn();
 	}, []);
 
