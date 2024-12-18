@@ -1,3 +1,5 @@
+//https://www.ohchelsea.com/2024/01/13/how-to-add-facebook-login-to-your-expo-react-native-app/
+
 import { useEffect } from "react";
 import { useRouter } from "expo-router";
 import { View, Text, StyleSheet, Image, Button } from "react-native";

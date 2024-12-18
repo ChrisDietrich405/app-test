@@ -22,9 +22,29 @@
 				}
 			],
 			"expo-router",
-			["react-native-bootsplash", { "assetsDir": "assets/bootsplash" }]
+			[
+				"react-native-bootsplash",
+				{
+					"assetsDir": "assets/bootsplash"
+				}
+			],
+			[
+				"react-native-fbsdk-next",
+				{
+					"appID": "1752892628798943",
+					"clientToken": "3623a75051943e10bb1b23e72c2385cd",
+					"displayName": "DMVegans",
+					"scheme": "fb1752892628798943",
+					"advertiserIDCollectionEnabled": false,
+					"autoLogAppEventsEnabled": false,
+					"isAutoInitEnabled": true,
+					"iosUserTrackingPermission": "This identifier will be used to deliver personalized ads to you."
+				}
+			],
+			"expo-tracking-transparency"
 		],
 		"ios": {
+			"bundleIdentifier": "com.chrisdietrich.apptest",
 			"supportsTablet": true
 		},
 		"android": {

@@ -3,6 +3,15 @@ import { Text, View, TouchableOpacity, Button, StyleSheet } from "react-native";
 import * as Google from "@react-native-google-signin/google-signin";
 import axios from "axios";
 import { createUser } from "../services/userServices";
+import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
+import {
+	AccessToken,
+	GraphRequest,
+	GraphRequestManager,
+	LoginButton,
+	Settings,
+	ShareDialog,
+} from "react-native-fbsdk-next";
 
 const GOOGLE_WEB_CLIENT_ID =
 	"870172615730-er097kb071n6h3kbuooiefbbqjkqb7r1.apps.googleusercontent.com";
@@ -12,6 +21,16 @@ export default function App() {
 	const [userInfo, setUserInfo] = useState<any | null>(null);
 
 	useEffect(() => {
+		const requestTracking = async () => {
+			const { status } = await requestTrackingPermissionsAsync();
+
+			Settings.initializeSDK();
+
+			if (status === "granted") {
+				await Settings.setAdvertiserTrackingEnabled(true);
+			}
+		};
+		requestTracking();
 		configureGoogleSignIn();
 	}, []);
 
@@ -63,6 +82,13 @@ export default function App() {
 
 	return (
 		<View style={styles.container}>
+			<LoginButton
+				onLogoutFinished={() => console.log("Logged out")}
+				onLoginFinished={(error, data) => {
+					console.log(error || data);
+					AccessToken.getCurrentAccessToken().then((data) => console.log(data));
+				}}
+			/>
 			<Button
 				title="Sign in with Google"
 				onPress={handleSignInWithGoogle}
