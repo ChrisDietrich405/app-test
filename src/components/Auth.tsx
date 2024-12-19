@@ -90,7 +90,7 @@ export default function App() {
 				}}
 			/>
 			<Button
-				title="Sign in with Google"
+				title="Sign in with shoes"
 				onPress={handleSignInWithGoogle}
 				color="#4285F4"
 			/>
