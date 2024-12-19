@@ -20,7 +20,7 @@ export interface CreateUser {
 export const createUserTemplate = async (userData: CreateUser) => {
 	try {
 		const response = await axios.post(
-			"http://localhost:3000/v1/api/users/create",
+			"http://68.134.184.69:3000/v1/api/users/create",
 			userData
 		);
 		console.log("response", response);
