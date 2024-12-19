@@ -29,8 +29,16 @@ export default function Login() {
 				An app to let you know about upcoming local catering/popup vegan events
 			</Text>
 			<View style={styles.button_container}>
-				<Button color="#288528" title="Create Account" />
-				<Button color="#288528" title="Log in" />
+				<Button
+					color="#288528"
+					onPress={() => router.push("/create-account")}
+					title="Create Account"
+				/>
+				<Button
+					color="#288528"
+					onPress={() => router.push("/login")}
+					title="Log in"
+				/>
 				<Button
 					color="#288528"
 					title="Sign in With Google"
