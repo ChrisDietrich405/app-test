@@ -5,7 +5,7 @@ import useGoogleAuth from "../hooks/useGoogleAuth";
 import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
 import { Settings, AccessToken, LoginButton } from "react-native-fbsdk-next";
 
-// import Auth from "../components/Auth"
+import Auth from "../components/Auth";
 
 export default function Login() {
 	const { userInfo, configureGoogleSignIn, handleSignInWithGoogle } =
@@ -56,7 +56,7 @@ export default function Login() {
 				}}
 				onLogoutFinished={() => console.log("logout.")}
 			/>
-			{/* <Auth /> */}
+			<Auth />
 		</View>
 	);
 }
