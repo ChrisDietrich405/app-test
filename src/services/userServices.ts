@@ -1,4 +1,4 @@
-// import api from "../utils";
+import api from "../utils";
 import axios from "axios";
 
 export interface User {
@@ -19,10 +19,7 @@ export interface CreateUser {
 
 export const createUserTemplate = async (userData: CreateUser) => {
 	try {
-		const response = await axios.post(
-			"http://68.134.184.69:3000/v1/api/users/create",
-			userData
-		);
+		const response = await api.post("/v1/api/users/create", userData);
 		console.log("response", response);
 		return response.data;
 	} catch (error) {

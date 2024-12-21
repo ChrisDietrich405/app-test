@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Button, Alert } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
+	const router = useRouter();
 
 	// Regular expression for basic email validation
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,6 +32,7 @@ export default function Login() {
 
 		// Add login logic here (e.g., API call)
 		Alert.alert("Success", "Logged in successfully!");
+		router.push("/events");
 	};
 
 	return (
