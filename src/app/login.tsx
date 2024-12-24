@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Button, Alert } from "react-native";
 import { useRouter } from "expo-router";
+import { loginUserTemplate, LoginUser } from "../services/userServices";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ export default function Login() {
 	// Regular expression for basic email validation
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-	const handleLogin = () => {
+	const handleLogin = async () => {
 		// Check if both fields are filled
 		if (!email || !password) {
 			Alert.alert("Error", "Please fill in all fields");
@@ -30,9 +31,39 @@ export default function Login() {
 			return;
 		}
 
-		// Add login logic here (e.g., API call)
-		Alert.alert("Success", "Logged in successfully!");
-		router.push("/events");
+		const user: LoginUser = { email, password };
+
+		await loginUserTemplate(user);
+
+		try {
+			// Make the API call to authenticate the user
+			const response = await fetch("https://your-api-url.com/login", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					email,
+					password,
+				}),
+			});
+
+			// Parse the response
+			const data = await response.json();
+
+			// Handle different API responses
+			if (response.ok) {
+				// Successful login
+				Alert.alert("Success", "Logged in successfully!");
+				router.push("/events");
+			} else {
+				// Handle error (e.g., invalid credentials)
+				Alert.alert("Error", data.message || "Login failed");
+			}
+		} catch (error) {
+			// Handle network or unexpected errors
+			Alert.alert("Error", "An error occurred. Please try again later.");
+		}
 	};
 
 	return (
