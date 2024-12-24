@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Button, Alert } from "react-native";
 import { createUserTemplate, CreateUser } from "../services/userServices";
+import { useRouter } from "expo-router";
 
 export default function CreateAccount() {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+
+	const router = useRouter();
 
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -39,6 +42,7 @@ export default function CreateAccount() {
 		await createUserTemplate(user);
 		// Add account creation logic here (e.g., API call)
 		Alert.alert("Success", "Account created successfully!");
+		router.push("/login");
 	};
 
 	return (
