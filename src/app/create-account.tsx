@@ -8,7 +8,6 @@ export default function CreateAccount() {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 
-	// Regular expression for basic email validation
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 	const handleCreateAccount = async () => {

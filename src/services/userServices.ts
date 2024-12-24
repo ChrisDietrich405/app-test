@@ -17,6 +17,20 @@ export interface CreateUser {
 	password: string;
 }
 
+// export const createUserTemplate = async (userData: CreateUser) => {
+// 	try {
+// 		const response = await api.post(
+// 			"http://localhost:3000/create-user",
+// 			userData
+// 		);
+// 		console.log("response", response);
+// 		return response.data;
+// 	} catch (error) {
+// 		console.error("Error creating user:", error);
+// 		throw error;
+// 	}
+// };
+
 export const createUserTemplate = async (userData: CreateUser) => {
 	try {
 		const response = await api.post("/v1/api/users/create", userData);
@@ -27,16 +41,3 @@ export const createUserTemplate = async (userData: CreateUser) => {
 		throw error;
 	}
 };
-
-// export const createUser = async (userData: User) => {
-// 	try {
-// 		const response = await api.post(
-// 			"http://localhost:3000/v1/api/users/create",
-// 			userData
-// 		);
-// 		return response.data;
-// 	} catch (error) {
-// 		console.error("Error creating user:", error);
-// 		throw error;
-// 	}
-// };

@@ -22,7 +22,10 @@ export default function Layout() {
 		<Stack>
 			<Stack.Screen name="index" options={{ title: "Home" }} />
 			<Stack.Screen name="events" options={{ title: "Events" }} />
-			<Stack.Screen name="createAccount" options={{ title: "CreateAccount" }} />
+			<Stack.Screen
+				name="create-account"
+				options={{ title: "CreateAccount" }}
+			/>
 			<Stack.Screen name="login" options={{ title: "Login" }} />
 		</Stack>
 	);
