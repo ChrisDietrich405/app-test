@@ -22,7 +22,16 @@
 				}
 			],
 			"expo-router",
-			["react-native-bootsplash", { "assetsDir": "assets/bootsplash" }]
+			["react-native-bootsplash", { "assetsDir": "assets/bootsplash" }],
+			[
+				"react-native-fbsdk-next",
+				{
+					"appID": "1752892628798943",
+					"clientToken": "3623a75051943e10bb1b23e72c2385cd",
+					"displayName": "marylandvegevents",
+					"scheme": "fb1752892628798943"
+				}
+			]
 		],
 		"ios": {
 			"supportsTablet": true

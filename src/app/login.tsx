@@ -9,7 +9,6 @@ export default function Login() {
 
 	const router = useRouter();
 
-	// Regular expression for basic email validation
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 	const handleLogin = async () => {

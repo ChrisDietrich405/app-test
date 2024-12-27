@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Button, Alert } from "react-native";
 import { createUserTemplate, CreateUser } from "../services/userServices";
+import axios from "axios";
 
 export default function CreateAccount() {
 	const [name, setName] = useState("");
@@ -36,9 +37,14 @@ export default function CreateAccount() {
 		}
 		const user: CreateUser = { name, email, password };
 
-		await createUserTemplate(user);
-		// Add account creation logic here (e.g., API call)
-		Alert.alert("Success", "Account created successfully!");
+		try {
+			await createUserTemplate(user);
+			Alert.alert("Success", "Account created successfully!");
+		} catch (error) {
+			if (axios.isAxiosError(error)) {
+				Alert.alert(error.response?.data.message);
+			}
+		}
 	};
 
 	return (

@@ -3,12 +3,13 @@ import { useRouter } from "expo-router";
 import { View, Text, StyleSheet, Image, Button } from "react-native";
 import { Link } from "expo-router";
 import useGoogleAuth from "../hooks/useGoogleAuth";
-// import Auth from "../components/Auth"
+import useFacebookAuth from "../hooks/useFacebookAuth";
 
 export default function Login() {
 	const router = useRouter();
 	const { userInfo, configureGoogleSignIn, handleSignInWithGoogle } =
 		useGoogleAuth();
+	const { loginWithFacebook } = useFacebookAuth();
 
 	useEffect(() => {
 		configureGoogleSignIn();
@@ -43,6 +44,11 @@ export default function Login() {
 					color="#288528"
 					title="Sign in With Google"
 					onPress={handleSignInWithGoogle}
+				/>
+				<Button
+					color="#288528"
+					title="Sign in With Facebook"
+					onPress={loginWithFacebook}
 				/>
 			</View>
 		</View>

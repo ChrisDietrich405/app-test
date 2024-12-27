@@ -22,24 +22,10 @@ export interface LoginUser {
 	password: string;
 }
 
-// export const createUserTemplate = async (userData: CreateUser) => {
-// 	try {
-// 		const response = await api.post(
-// 			"http://localhost:3000/create-user",
-// 			userData
-// 		);
-// 		console.log("response", response);
-// 		return response.data;
-// 	} catch (error) {
-// 		console.error("Error creating user:", error);
-// 		throw error;
-// 	}
-// };
-
 export const createUserTemplate = async (userData: CreateUser) => {
+	console.log("userData", userData);
 	try {
 		const response = await api.post("/v1/api/users/create", userData);
-		console.log("response", response);
 		return response.data;
 	} catch (error) {
 		console.error("Error creating user:", error);
@@ -47,10 +33,9 @@ export const createUserTemplate = async (userData: CreateUser) => {
 	}
 };
 
-export const LoginUserTemplate = async (userData: LoginUser) => {
+export const loginUserTemplate = async (userData: LoginUser) => {
 	try {
 		const response = await api.post("/v1/api/auth", userData);
-		console.log("response", response);
 		return response.data;
 	} catch (error) {
 		console.error("Error creating user:", error);
