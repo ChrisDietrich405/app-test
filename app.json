@@ -22,16 +22,22 @@
 				}
 			],
 			"expo-router",
-			["react-native-bootsplash", { "assetsDir": "assets/bootsplash" }],
+			[
+				"react-native-bootsplash",
+				{
+					"assetsDir": "assets/bootsplash"
+				}
+			],
 			[
 				"react-native-fbsdk-next",
 				{
-					"appID": "1752892628798943",
-					"clientToken": "8879973cc7192e4429113a38a1b4b6cd",
-					"displayName": "marylandvegevents",
-					"scheme": "fb1752892628798943"
+					"appID": "551639104366552",
+					"clientToken": "afceeef65844cbfff7631c3716653c87",
+					"displayName": "expo-login-practice",
+					"scheme": "fb551639104366552"
 				}
-			]
+			],
+			"expo-tracking-transparency"
 		],
 		"ios": {
 			"supportsTablet": true
