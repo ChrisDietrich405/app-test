@@ -36,7 +36,7 @@ export const createUserTemplate = async (userData: CreateUser) => {
 export const loginUserTemplate = async (userData: LoginUser) => {
 	try {
 		const response = await api.post("/v1/api/auth", userData);
-		return response.data;
+		return response;
 	} catch (error) {
 		console.error("Error creating user:", error);
 		throw error;

@@ -33,8 +33,8 @@ const App = () => {
 							>
 								<Text style={styles.textStyle}>Have a better experience</Text>
 								<Text style={styles.textStyle}>
-									Allow notifications in order to get alerted about local vegan
-									events.{" "}
+									Receive notifications to get up to date news of all the latest
+									happenings!
 								</Text>
 								<Button title="Set your preferences" />
 							</Pressable>

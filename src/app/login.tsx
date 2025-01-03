@@ -6,7 +6,6 @@ import { loginUserTemplate, LoginUser } from "../services/userServices";
 export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
 	const router = useRouter();
 
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,35 +31,17 @@ export default function Login() {
 
 		const user: LoginUser = { email, password };
 
-		await loginUserTemplate(user);
-
 		try {
-			// Make the API call to authenticate the user
-			const response = await fetch("https://your-api-url.com/login", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					email,
-					password,
-				}),
-			});
+			const response = await loginUserTemplate(user);
 
 			// Parse the response
-			const data = await response.json();
 
 			// Handle different API responses
-			if (response.ok) {
-				// Successful login
-				Alert.alert("Success", "Logged in successfully!");
-				router.push("/events");
-			} else {
-				// Handle error (e.g., invalid credentials)
-				Alert.alert("Error", data.message || "Login failed");
-			}
+			Alert.alert("Success", "Logged in successfully!");
+			router.push("/events");
 		} catch (error) {
 			// Handle network or unexpected errors
+			console.log("email", error);
 			Alert.alert("Error", "An error occurred. Please try again later.");
 		}
 	};

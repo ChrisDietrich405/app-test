@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Button, Alert } from "react-native";
 import { createUserTemplate, CreateUser } from "../services/userServices";
 import axios from "axios";
+import { router } from "expo-router";
 
 export default function CreateAccount() {
 	const [name, setName] = useState("");
@@ -40,6 +41,7 @@ export default function CreateAccount() {
 		try {
 			await createUserTemplate(user);
 			Alert.alert("Success", "Account created successfully!");
+			router.push("/login");
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
 				Alert.alert(error.response?.data.message);

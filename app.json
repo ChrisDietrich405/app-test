@@ -21,6 +21,7 @@
 					"androidUrlScheme": "870172615730-ehosafbm1g9toc4heedh1hrnafb3puqa.apps.googleusercontent.com"
 				}
 			],
+			"expo-dev-client",
 			"expo-router",
 			[
 				"react-native-bootsplash",
@@ -31,10 +32,10 @@
 			[
 				"react-native-fbsdk-next",
 				{
-					"appID": "551639104366552",
-					"clientToken": "afceeef65844cbfff7631c3716653c87",
-					"displayName": "expo-login-practice",
-					"scheme": "fb551639104366552"
+					"appID": "1290173905522353",
+					"clientToken": "f347c619cdbc9ed473269c72070c8515",
+					"displayName": "test-app",
+					"scheme": "fb1290173905522353"
 				}
 			],
 			"expo-tracking-transparency"

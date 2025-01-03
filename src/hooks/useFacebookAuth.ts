@@ -10,18 +10,19 @@ export default function useFacebookAuth() {
 		email?: string | null;
 	} | null>(null);
 
-	const loginWithFacebook = useCallback(async () => {
+	const loginWithFacebook = async () => {
 		try {
 			setIsLoggingIn(true);
 			setError(null);
-
+			console.log("something");
 			// Log in to Facebook
 			const loginResult = await LoginManager.logInWithPermissions([
 				"public_profile",
 				"email",
 			]);
+			console.log(loginResult);
 			if (loginResult.isCancelled) {
-				setError("Login cancelado pelo usuário");
+				setError("Login cancelled by the user");
 				setIsLoggingIn(false);
 				return;
 			}
@@ -29,7 +30,7 @@ export default function useFacebookAuth() {
 			// Get the access token
 			const accessTokenData = await AccessToken.getCurrentAccessToken();
 			if (!accessTokenData) {
-				setError("Não foi possível obter o token de acesso do Facebook");
+				setError("It wasn't possible to obtain the Facebook token");
 				setIsLoggingIn(false);
 				return;
 			}
@@ -39,22 +40,24 @@ export default function useFacebookAuth() {
 			setUser({
 				id: profile?.userID || "",
 				name: profile?.name || null,
-				email: null, // O email precisará ser buscado com uma requisição Graph API
+
+				email: null, // email is necessary to search for the required Graph API
 			});
 
 			setIsLoggingIn(false);
 		} catch (err: any) {
-			setError(err.message || "Ocorreu um erro inesperado");
+			setError(err.message || "unexpected error");
 			setIsLoggingIn(false);
+			console.log(err);
 		}
-	}, []);
+	};
 
 	const logoutFromFacebook = useCallback(async () => {
 		try {
 			await LoginManager.logOut();
 			setUser(null);
 		} catch (err: any) {
-			setError(err.message || "Erro ao tentar deslogar");
+			setError(err.message || "error while logging out");
 		}
 	}, []);
 

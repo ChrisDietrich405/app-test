@@ -9,14 +9,14 @@ export default function Login() {
 	const router = useRouter();
 	const { userInfo, configureGoogleSignIn, handleSignInWithGoogle } =
 		useGoogleAuth();
-	const { loginWithFacebook } = useFacebookAuth();
+	const { loginWithFacebook, isLoggingIn } = useFacebookAuth();
 
 	useEffect(() => {
 		configureGoogleSignIn();
 	}, []);
 
 	useEffect(() => {
-		if (userInfo) {
+		if (userInfo || isLoggingIn) {
 			console.log("USERINFO", userInfo);
 			router.push("/events");
 		}
@@ -27,7 +27,7 @@ export default function Login() {
 			<Image source={require("../../assets/logo.png")} style={styles.image} />
 
 			<Text style={styles.link}>
-				An app to let you know about upcoming local catering/popup vegan events
+				Your home for local vegan pop-ups, food trucks, catering, and more!
 			</Text>
 			<View style={styles.button_container}>
 				<Button
