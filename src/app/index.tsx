@@ -16,13 +16,26 @@ export default function Login() {
 	}, []);
 
 	useEffect(() => {
-		if (userInfo || isLoggingIn) {
-			console.log("USERINFO", userInfo);
+		if (userInfo) {
 			router.push("/events");
 		}
 	}, [userInfo]);
 
-	return (
+	useEffect(() => {
+		if (isLoggingIn) {
+			router.push("/events");
+		}
+	}, [isLoggingIn]);
+
+	return isLoggingIn ? (
+		<View style={styles.container}>
+			<Image source={require("../../assets/logo.png")} style={styles.image} />
+
+			<Text style={styles.link}>
+				Your home for local vegan pop-ups, food trucks, catering, and more!
+			</Text>
+		</View>
+	) : (
 		<View style={styles.container}>
 			<Image source={require("../../assets/logo.png")} style={styles.image} />
 

@@ -11,7 +11,6 @@ export default function Login() {
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 	const handleLogin = async () => {
-		// Check if both fields are filled
 		if (!email || !password) {
 			Alert.alert("Error", "Please fill in all fields");
 			return;
@@ -23,7 +22,6 @@ export default function Login() {
 			return;
 		}
 
-		// Check password length (optional)
 		if (password.length < 6) {
 			Alert.alert("Error", "Password must be at least 6 characters long");
 			return;
@@ -34,13 +32,9 @@ export default function Login() {
 		try {
 			const response = await loginUserTemplate(user);
 
-			// Parse the response
-
-			// Handle different API responses
 			Alert.alert("Success", "Logged in successfully!");
 			router.push("/events");
 		} catch (error) {
-			// Handle network or unexpected errors
 			console.log("email", error);
 			Alert.alert("Error", "An error occurred. Please try again later.");
 		}

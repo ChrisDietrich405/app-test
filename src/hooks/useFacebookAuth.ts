@@ -14,8 +14,6 @@ export default function useFacebookAuth() {
 		try {
 			setIsLoggingIn(true);
 			setError(null);
-			console.log("something");
-			// Log in to Facebook
 			const loginResult = await LoginManager.logInWithPermissions([
 				"public_profile",
 				"email",

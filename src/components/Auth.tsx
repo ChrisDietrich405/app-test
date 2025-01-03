@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity, Button, StyleSheet } from "react-native";
 import * as Google from "@react-native-google-signin/google-signin";
 import axios from "axios";
-import { createUser } from "../services/userServices";
+import { createUserTemplate } from "../services/userServices";
 
 const GOOGLE_WEB_CLIENT_ID =
 	"870172615730-er097kb071n6h3kbuooiefbbqjkqb7r1.apps.googleusercontent.com";
@@ -53,7 +53,7 @@ export default function App() {
 			console.log(userInfo);
 			if (userInfo) {
 				setUserInfo(userInfo);
-				await createUser(userInfo.data.user);
+				await createUserTemplate(userInfo.data.user);
 			}
 			// router.push("/");
 		} catch (error) {

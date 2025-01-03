@@ -32,10 +32,10 @@
 			[
 				"react-native-fbsdk-next",
 				{
-					"appID": "1290173905522353",
-					"clientToken": "f347c619cdbc9ed473269c72070c8515",
+					"appID": "1019968159938421",
+					"clientToken": "542547af24acf795b6be9a8f516f44ce",
 					"displayName": "test-app",
-					"scheme": "fb1290173905522353"
+					"scheme": "fb1019968159938421"
 				}
 			],
 			"expo-tracking-transparency"

@@ -23,7 +23,6 @@ export interface LoginUser {
 }
 
 export const createUserTemplate = async (userData: CreateUser) => {
-	console.log("userData", userData);
 	try {
 		const response = await api.post("/v1/api/users/create", userData);
 		return response.data;

@@ -1,7 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, Image } from "react-native";
+import useFacebookAuth from "../hooks/useFacebookAuth";
+import { useRouter } from "expo-router";
 
 export default function Events() {
+	const { logoutFromFacebook } = useFacebookAuth();
+	const router = useRouter();
+
+	const handleLogout = () => {
+		logoutFromFacebook();
+		router.push("/login");
+	};
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.cardHorizontal}>
@@ -38,6 +48,7 @@ export default function Events() {
 				<Text style={styles.text}>123 Boston Ave, Hanover</Text>
 				<Button title="Event Details" color="#288528" onPress={() => {}} />
 			</View>
+			<Button color="#288528" title="Log out" onPress={handleLogout} />
 		</View>
 	);
 }
